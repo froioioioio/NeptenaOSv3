@@ -1,0 +1,21 @@
+{
+  "id": "q889dieYZ2e6SIYXfhBt",
+  "title": "Identifying Opportunities",
+  "slug": "identifying-opportunities",
+  "objective": "crawl through https://",
+  "status": "active",
+  "assignedAgent": "agent-ceo",
+  "priority": "high",
+  "projectFolder": "projects/identifying-opportunities-q889di",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-09T07:11:00.287Z"
+}

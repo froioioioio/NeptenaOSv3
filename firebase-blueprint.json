@@ -1,0 +1,175 @@
+{
+  "entities": {
+    "founder_accounts": {
+      "fields": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "passwordHash": { "type": "string" },
+        "salt": { "type": "string" },
+        "role": { "type": "string" },
+        "authMethod": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "lastActive": { "type": "number" }
+      }
+    },
+    "founders": {
+      "fields": {
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "authMethod": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "lastActive": { "type": "number" }
+      }
+    },
+    "users": {
+      "fields": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "number" }
+      }
+    },
+    "missions": {
+      "fields": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "objective": { "type": "string" },
+        "assignedAgent": { "type": "string" },
+        "status": { "type": "string" },
+        "priority": { "type": "string" },
+        "founderUid": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "tasks": {
+      "fields": {
+        "id": { "type": "string" },
+        "missionId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string" },
+        "assignedTo": { "type": "string" },
+        "dependsOnTaskIds": { "type": "array" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "agents": {
+      "fields": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "status": { "type": "string" },
+        "capabilities": { "type": "array" },
+        "currentMissionId": { "type": "string" },
+        "modelTier": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "workers": {
+      "fields": {
+        "id": { "type": "string" },
+        "taskId": { "type": "string" },
+        "missionId": { "type": "string" },
+        "parentAgentId": { "type": "string" },
+        "role": { "type": "string" },
+        "status": { "type": "string" },
+        "spawnedAt": { "type": "number" },
+        "terminatedAt": { "type": "number" },
+        "resultSummary": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "tool_calls": {
+      "fields": {
+        "id": { "type": "string" },
+        "missionId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "agentId": { "type": "string" },
+        "workerId": { "type": "string" },
+        "toolName": { "type": "string" },
+        "input": { "type": "object" },
+        "output": { "type": "object" },
+        "status": { "type": "string" },
+        "startedAt": { "type": "number" },
+        "completedAt": { "type": "number" },
+        "error": { "type": "string" },
+        "approvalRequired": { "type": "boolean" },
+        "approvedBy": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "artifacts": {
+      "fields": {
+        "id": { "type": "string" },
+        "missionId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "content": { "type": "string" },
+        "status": { "type": "string" },
+        "version": { "type": "number" },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "approvals": {
+      "fields": {
+        "id": { "type": "string" },
+        "missionId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "actionType": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string" },
+        "requestedByAgent": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "resolvedAt": { "type": "number" },
+        "resolutionNote": { "type": "string" },
+        "metadata": { "type": "object" }
+      }
+    },
+    "activities": {
+      "fields": {
+        "id": { "type": "string" },
+        "missionId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "agentId": { "type": "string" },
+        "requestType": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "object" },
+        "result": { "type": "object" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "knowledge_nodes": {
+      "fields": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "version": { "type": "number" },
+        "tags": { "type": "array" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "system_telemetry": {
+      "fields": {
+        "lastPing": { "type": "timestamp" },
+        "system": { "type": "string" },
+        "phase": { "type": "number" },
+        "timestamp": { "type": "number" }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "y08Hz9RxNlZzKVjl2vKu",
+  "title": "Test Mission",
+  "slug": "test-mission",
+  "objective": "Test Objective",
+  "status": "active",
+  "assignedAgent": "agent-growth",
+  "priority": "high",
+  "projectFolder": "projects/test-mission-y08Hz9",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-02T15:17:01.661Z"
+}

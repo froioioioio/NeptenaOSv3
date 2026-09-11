@@ -1,0 +1,21 @@
+{
+  "id": "f8SFYDHUy0CMoVq4ovFI",
+  "title": "Test Quick Scaffold",
+  "slug": "test-quick-scaffold",
+  "objective": "Test PRD scaffold",
+  "status": "active",
+  "assignedAgent": "agent-ceo",
+  "priority": "high",
+  "projectFolder": "projects/test-quick-scaffold-f8SFYD",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-10T15:21:47.519Z"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "CMDqwroLeP6tFgazG1E7",
+  "title": "Test Feature",
+  "slug": "test-feature",
+  "objective": "Convert PRD specification into an active GitHub feature branch, scaffolded TypeScript module, and Draft PR",
+  "status": "active",
+  "assignedAgent": "agent-ceo",
+  "priority": "high",
+  "projectFolder": "projects/test-feature-CMDqwr",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-10T15:24:34.941Z"
+}

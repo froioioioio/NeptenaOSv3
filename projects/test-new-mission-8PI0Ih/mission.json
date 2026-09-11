@@ -1,0 +1,21 @@
+{
+  "id": "8PI0IhtnXJTJOK5PhSGv",
+  "title": "test new mission",
+  "slug": "test-new-mission",
+  "objective": "test objective new",
+  "status": "active",
+  "assignedAgent": "agent-ceo",
+  "priority": "high",
+  "projectFolder": "projects/test-new-mission-8PI0Ih",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-09T07:32:05.196Z"
+}

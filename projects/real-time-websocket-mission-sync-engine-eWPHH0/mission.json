@@ -1,0 +1,21 @@
+{
+  "id": "eWPHH040G7jTPq9AFgAI",
+  "title": "Real-time WebSocket Mission Sync Engine",
+  "slug": "real-time-websocket-mission-sync-engine",
+  "objective": "Build high-performance real-time telemetry bridge and production pull request",
+  "status": "active",
+  "assignedAgent": "agent-ceo",
+  "priority": "high",
+  "projectFolder": "projects/real-time-websocket-mission-sync-engine-eWPHH0",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-10T15:16:03.385Z"
+}

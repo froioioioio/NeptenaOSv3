@@ -1,0 +1,8 @@
+{
+  "firestore": {
+    "databaseId": "ai-studio-neptenaos-a3e40df3-df27-44d9-a22b-03906ae710c5",
+    "rules": "firestore.rules",
+    "edition": "ENTERPRISE",
+    "dataAccessMode": "FIRESTORE_NATIVE"
+  }
+}

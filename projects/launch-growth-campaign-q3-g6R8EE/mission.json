@@ -1,0 +1,21 @@
+{
+  "id": "g6R8EEh3NV9UnWexOV7z",
+  "title": "Launch Growth Campaign Q3",
+  "slug": "launch-growth-campaign-q3",
+  "objective": "Drive 10x adoption through technical content and developer advocacy",
+  "status": "active",
+  "assignedAgent": "agent-growth",
+  "priority": "high",
+  "projectFolder": "projects/launch-growth-campaign-q3-g6R8EE",
+  "subfolders": [
+    "docs",
+    "research",
+    "copy",
+    "src",
+    "audits",
+    "slides",
+    "assets",
+    "media"
+  ],
+  "updatedAt": "2026-09-02T15:19:31.580Z"
+}
