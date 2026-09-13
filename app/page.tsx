@@ -1728,7 +1728,7 @@ export default function MissionControlScreen() {
           })()}
 
           {/* Section Bar: Title, Filters & Actions */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+          <div className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-3">
             <button
               id="toggle-artifacts-collapse-btn"
               type="button"
@@ -1747,9 +1747,9 @@ export default function MissionControlScreen() {
               </div>
             </button>
 
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2 flex-wrap max-w-full">
               {/* Filter Tabs */}
-              <div className="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-medium">
+              <div className="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-medium flex-wrap max-w-full">
                 <button
                   type="button"
                   onClick={() => setArtifactFilter('active')}
@@ -1970,8 +1970,8 @@ export default function MissionControlScreen() {
                         {art.content.slice(0, 150)}...
                       </p>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px] flex-wrap gap-2">
-                        <div className="flex items-center gap-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-2.5 border-t border-slate-800/80 text-[11px] gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                           <button
                             onClick={() => setSelectedArtifact(art)}
                             className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-medium"
@@ -2017,7 +2017,7 @@ export default function MissionControlScreen() {
                           </button>
                         </div>
 
-                        <div className="flex items-center gap-1.5 relative">
+                        <div className="flex items-center gap-1.5 flex-wrap max-w-full relative">
                           {/* If Pending Approval: Show 1-Tap Approve Button */}
                           {isPending && (
                             <button
@@ -2487,7 +2487,7 @@ export default function MissionControlScreen() {
           )}
 
           {/* Section Bar: Title, Filter Tabs, Collapse/Expand & Real Data Indicator */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+          <div className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-3">
             <button
               id="toggle-missions-collapse-btn"
               type="button"
@@ -2506,10 +2506,10 @@ export default function MissionControlScreen() {
               </div>
             </button>
 
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2 flex-wrap max-w-full">
               {/* Filter Pills (visible when expanded) */}
               {missionsExpanded && (
-                <div className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs">
+                <div className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs flex-wrap max-w-full">
                   <button
                     type="button"
                     onClick={() => setMissionFilter('active')}
@@ -2680,7 +2680,7 @@ export default function MissionControlScreen() {
                       )}
                       {/* Mission Header */}
                       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                        <div className="space-y-1 flex-1">
+                        <div className="space-y-1 flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
                             <h3 className="text-base font-semibold text-white tracking-tight">{mission.title}</h3>
                             {mission.type === 'side_quest' && (
@@ -2734,83 +2734,83 @@ export default function MissionControlScreen() {
                           </div>
                         </div>
 
-                        <div className="shrink-0 flex sm:flex-col sm:items-end justify-between gap-2 text-[11px] text-slate-400">
-                          <div className="flex items-center gap-2">
-                            <span>Lead Agent: <strong className="text-cyan-300 font-mono">CEO Orchestrator</strong></span>
-                            <span className="font-mono text-[10px] text-slate-400">
-                              {mission.createdAt ? new Date(mission.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Recent'}
-                            </span>
-                          </div>
-
-                          <div className="flex items-center gap-1.5 flex-wrap">
-                            <button
-                              id={`create-mission-pr-btn-${mission.id}`}
-                              onClick={() => handleCreateMissionPR(mission.id)}
-                              disabled={creatingPrMissionId === mission.id}
-                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-blue-600/30 hover:bg-blue-600 border border-blue-500/60 text-blue-200 hover:text-white transition-all disabled:opacity-40"
-                              title="Bundle all deliverables into a consolidated GitHub Pull Request"
-                            >
-                              <GitPullRequest className={`w-3 h-3 ${creatingPrMissionId === mission.id ? 'animate-spin text-blue-300' : ''}`} />
-                              <span>{creatingPrMissionId === mission.id ? 'Creating PR...' : mission.prNumber ? `Update PR #${mission.prNumber}` : 'Create Mission PR'}</span>
-                            </button>
-
-                            <button
-                              id={`execute-concurrently-btn-${mission.id}`}
-                              onClick={() => handleExecuteMissionConcurrently(mission.id)}
-                              disabled={executingMissionConcurrentlyId === mission.id || mission.status === 'completed'}
-                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-600/30 hover:bg-purple-600 border border-purple-500/60 text-purple-200 hover:text-white transition-all disabled:opacity-40"
-                              title="Execute all tasks in parallel dependency waves"
-                            >
-                              <GitFork className={`w-3 h-3 ${executingMissionConcurrentlyId === mission.id ? 'animate-spin text-purple-300' : ''}`} />
-                              <span>{executingMissionConcurrentlyId === mission.id ? 'Executing Waves...' : 'Run Parallel Waves'}</span>
-                            </button>
-
-                            <button
-                              id={`direct-req-btn-${mission.id}`}
-                              onClick={() => handleOpenDirectRequestModal(mission)}
-                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/60 text-emerald-200 hover:text-white transition-all"
-                              title="Send synchronous agent request to Mission Control (Re-prioritize, Ask Output, Flag Blocker)"
-                            >
-                              <Radio className="w-3 h-3 text-emerald-300" />
-                              <span>Agent Request</span>
-                            </button>
-
-                            <button
-                              id={`archive-mission-btn-${mission.id}`}
-                              onClick={() => handleOpenArchiveModal(mission)}
-                              disabled={archivingMissionId === mission.id}
-                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-950/70 hover:bg-purple-900 border border-purple-800/80 text-purple-300 hover:text-white transition-all disabled:opacity-40"
-                              title="Move this mission and its associated deliverables to the central archive"
-                            >
-                              <Archive className={`w-3 h-3 ${archivingMissionId === mission.id ? 'animate-spin text-purple-300' : 'text-purple-400'}`} />
-                              <span>{archivingMissionId === mission.id ? 'Archiving...' : 'Archive'}</span>
-                            </button>
-
-                            {mission.status !== 'completed' && mission.status !== 'cancelled' && (
-                              <>
-                                <button
-                                  id={`complete-mission-btn-${mission.id}`}
-                                  onClick={() => handleCompleteMission(mission.id)}
-                                  disabled={completingMissionId === mission.id}
-                                  className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-300 hover:text-white transition-all disabled:opacity-40"
-                                  title="Mark this mission as fully completed"
-                                >
-                                  <CheckCircle className={`w-3 h-3 ${completingMissionId === mission.id ? 'animate-spin' : 'text-emerald-400'}`} />
-                                  <span>{completingMissionId === mission.id ? 'Completing...' : 'Complete'}</span>
-                                </button>
-                                <button
-                                  id={`cancel-mission-btn-${mission.id}`}
-                                  onClick={() => handleOpenCancelModal(mission)}
-                                  className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900 border border-rose-800/80 text-rose-300 hover:text-white transition-all"
-                                  title="Cancel this mission and route directly to archive"
-                                >
-                                  <Ban className="w-3 h-3 text-rose-400" />
-                                  <span>Cancel</span>
-                                </button>
-                              </>
-                            )}
-                          </div>
+                        <div className="flex items-center gap-2 text-[11px] text-slate-400 shrink-0 self-start sm:self-auto bg-slate-950/60 border border-slate-800/80 px-2.5 py-1 rounded-lg">
+                          <span>Lead Agent: <strong className="text-cyan-300 font-mono">CEO Orchestrator</strong></span>
+                          <span className="font-mono text-[10px] text-slate-500">•</span>
+                          <span className="font-mono text-[10px] text-slate-400">
+                            {mission.createdAt ? new Date(mission.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Recent'}
+                          </span>
                         </div>
+                      </div>
+
+                      {/* Mission Action CTAs Toolbar (Contained within component border) */}
+                      <div className="flex items-center justify-end gap-1.5 flex-wrap pt-2.5 border-t border-slate-800/80 w-full">
+                        <button
+                          id={`create-mission-pr-btn-${mission.id}`}
+                          onClick={() => handleCreateMissionPR(mission.id)}
+                          disabled={creatingPrMissionId === mission.id}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-blue-600/30 hover:bg-blue-600 border border-blue-500/60 text-blue-200 hover:text-white transition-all disabled:opacity-40"
+                          title="Bundle all deliverables into a consolidated GitHub Pull Request"
+                        >
+                          <GitPullRequest className={`w-3 h-3 ${creatingPrMissionId === mission.id ? 'animate-spin text-blue-300' : ''}`} />
+                          <span>{creatingPrMissionId === mission.id ? 'Creating PR...' : mission.prNumber ? `Update PR #${mission.prNumber}` : 'Create Mission PR'}</span>
+                        </button>
+
+                        <button
+                          id={`execute-concurrently-btn-${mission.id}`}
+                          onClick={() => handleExecuteMissionConcurrently(mission.id)}
+                          disabled={executingMissionConcurrentlyId === mission.id || mission.status === 'completed'}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-600/30 hover:bg-purple-600 border border-purple-500/60 text-purple-200 hover:text-white transition-all disabled:opacity-40"
+                          title="Execute all tasks in parallel dependency waves"
+                        >
+                          <GitFork className={`w-3 h-3 ${executingMissionConcurrentlyId === mission.id ? 'animate-spin text-purple-300' : ''}`} />
+                          <span>{executingMissionConcurrentlyId === mission.id ? 'Executing Waves...' : 'Run Parallel Waves'}</span>
+                        </button>
+
+                        <button
+                          id={`direct-req-btn-${mission.id}`}
+                          onClick={() => handleOpenDirectRequestModal(mission)}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/60 text-emerald-200 hover:text-white transition-all"
+                          title="Send synchronous agent request to Mission Control (Re-prioritize, Ask Output, Flag Blocker)"
+                        >
+                          <Radio className="w-3 h-3 text-emerald-300" />
+                          <span>Agent Request</span>
+                        </button>
+
+                        <button
+                          id={`archive-mission-btn-${mission.id}`}
+                          onClick={() => handleOpenArchiveModal(mission)}
+                          disabled={archivingMissionId === mission.id}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-950/70 hover:bg-purple-900 border border-purple-800/80 text-purple-300 hover:text-white transition-all disabled:opacity-40"
+                          title="Move this mission and its associated deliverables to the central archive"
+                        >
+                          <Archive className={`w-3 h-3 ${archivingMissionId === mission.id ? 'animate-spin text-purple-300' : 'text-purple-400'}`} />
+                          <span>{archivingMissionId === mission.id ? 'Archiving...' : 'Archive'}</span>
+                        </button>
+
+                        {mission.status !== 'completed' && mission.status !== 'cancelled' && (
+                          <>
+                            <button
+                              id={`complete-mission-btn-${mission.id}`}
+                              onClick={() => handleCompleteMission(mission.id)}
+                              disabled={completingMissionId === mission.id}
+                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/80 text-emerald-300 hover:text-white transition-all disabled:opacity-40"
+                              title="Mark this mission as fully completed"
+                            >
+                              <CheckCircle className={`w-3 h-3 ${completingMissionId === mission.id ? 'animate-spin' : 'text-emerald-400'}`} />
+                              <span>{completingMissionId === mission.id ? 'Completing...' : 'Complete'}</span>
+                            </button>
+                            <button
+                              id={`cancel-mission-btn-${mission.id}`}
+                              onClick={() => handleOpenCancelModal(mission)}
+                              className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900 border border-rose-800/80 text-rose-300 hover:text-white transition-all"
+                              title="Cancel this mission and route directly to archive"
+                            >
+                              <Ban className="w-3 h-3 text-rose-400" />
+                              <span>Cancel</span>
+                            </button>
+                          </>
+                        )}
                       </div>
 
                       {/* Progress Bar & Summary */}
@@ -2937,7 +2937,7 @@ export default function MissionControlScreen() {
           })()}
 
           {/* Section Bar: Title, Action Count & Collapse/Expand Button */}
-          <div className="flex items-center justify-between pt-1">
+          <div className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <button
               id="toggle-activity-stream-collapse-btn"
               type="button"
@@ -2956,7 +2956,7 @@ export default function MissionControlScreen() {
               </div>
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap max-w-full">
               <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">
                 {activities.length} Recorded Action{activities.length === 1 ? '' : 's'}
               </span>

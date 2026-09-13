@@ -21,18 +21,18 @@ import {
 } from 'firebase/firestore';
 import firebaseConfigData from '@/firebase-applet-config.json';
 
-// Firebase configuration loaded from project setup
+// Firebase configuration loaded from project setup or environment variables
 export const firebaseConfig = {
-  apiKey: firebaseConfigData.apiKey,
-  authDomain: firebaseConfigData.authDomain,
-  projectId: firebaseConfigData.projectId,
-  storageBucket: firebaseConfigData.storageBucket,
-  messagingSenderId: firebaseConfigData.messagingSenderId,
-  appId: firebaseConfigData.appId,
-  measurementId: firebaseConfigData.measurementId || undefined,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || firebaseConfigData.apiKey,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || firebaseConfigData.authDomain,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || firebaseConfigData.projectId,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || firebaseConfigData.storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || firebaseConfigData.messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || firebaseConfigData.appId,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || firebaseConfigData.measurementId || undefined,
 };
 
-export const FIRESTORE_DATABASE_ID = firebaseConfigData.firestoreDatabaseId || '(default)';
+export const FIRESTORE_DATABASE_ID = process.env.NEXT_PUBLIC_FIRESTORE_DATABASE_ID || firebaseConfigData.firestoreDatabaseId || '(default)';
 
 // Initialize Firebase App instance safely (singleton pattern)
 export function getFirebaseApp(): FirebaseApp {

@@ -302,7 +302,7 @@ export function TaskDependencyGraph({
       {/* Selected Task Highlight Banner (if clicked) */}
       {activeTask && (
         <div className="p-3 rounded-xl bg-slate-950 border border-purple-800/80 shadow-md flex items-start justify-between gap-3 text-xs animate-fadeIn">
-          <div className="space-y-1">
+          <div className="space-y-1 flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-mono font-bold text-purple-300 bg-purple-950 px-2 py-0.5 rounded border border-purple-800">
                 Step {activeTask.stepNumber} Focus
@@ -341,7 +341,7 @@ export function TaskDependencyGraph({
 
             {/* Focus Task Action Controls */}
             {(onDelegateTask || onUpdateTaskStatus || onExecuteWorker || onRequestMergePR) && (
-              <div className="flex items-center gap-1.5 pt-2 flex-wrap border-t border-slate-800/80">
+              <div className="flex items-center gap-1.5 pt-2 flex-wrap border-t border-slate-800/80 w-full max-w-full">
                 {onDelegateTask && (
                   <div className="flex items-center bg-slate-900 border border-slate-700 rounded p-0.5">
                     <button
@@ -680,7 +680,7 @@ export function TaskDependencyGraph({
 
                 {/* Right: Interactive Task Actions if callbacks provided */}
                 {(onDelegateTask || onUpdateTaskStatus || onExecuteWorker || onRequestMergePR) && (
-                  <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-center flex-wrap pt-1 sm:pt-0">
+                  <div className="flex items-center gap-1.5 max-w-full justify-end flex-wrap pt-1 sm:pt-0">
                     {/* Delegation selector */}
                     {onDelegateTask && (
                       <div className="flex items-center bg-slate-900 border border-slate-700 rounded p-0.5">
